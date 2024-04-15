@@ -57,6 +57,7 @@ Upcoming:
   - Class that contains methods for interacting with the GroupMe API
   - get_groups_info() will print the user's GroupMe groups and group ID's
   - send_group_message() will send a message to the user's selected group
+  - random_guid() will generate a random guid that is required for each message sent through GroupMe API
   - Additional methods for interacting with GroupMe API
     - images() will allow user to upload images to GroupMe API to send in messages or update group Avatars
     - get_messages() will allow user to retrieve messages from their selected group
