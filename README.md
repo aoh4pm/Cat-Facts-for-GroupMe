@@ -61,7 +61,6 @@ Upcoming:
   - Additional methods for interacting with GroupMe API
     - images() will allow user to upload images to GroupMe API to send in messages or update group Avatars
     - get_messages() will allow user to retrieve messages from their selected group
-    - add_member_to_group() will allow user to add additional members to a selected group 
 - tests.py
   - Contains tests to verify Cat Facts and GroupMe API responses
   - test_cat_facts() will verify a 200 response from Cat Facts API
