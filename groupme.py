@@ -10,10 +10,12 @@ class GroupMe:
 
     def get_groups_info(self):
         endpoint_url = f"{self.base}groups"
-        r = requests.get(endpoint_url, params=self.access_token)
+        payload = {
+            "token": self.access_token
+        }
+        r = requests.get(endpoint_url, params=payload)
 
         groups_info = r.json()
-        # print(json.dumps(groups, indent=2))
 
         groups_ids = []
         for group in groups_info["response"]:
@@ -30,7 +32,10 @@ class GroupMe:
 
     def get_group_single(self, group_id):
         endpoint_url = f"{self.base}groups/{group_id}"
-        r = requests.get(endpoint_url, params=self.access_token)
+        payload = {
+            "token": self.access_token
+        }
+        r = requests.get(endpoint_url, params=payload)
         return r
 
     def get_messages(self, group_id):
@@ -46,20 +51,16 @@ class GroupMe:
         endpoint_url = f"{self.base}groups/{group}/messages"
 
         payload = {
+            "token": self.access_token,
+        }
+        data = {
             "message": {
                 "source_guid": self.random_guid(),
                 "text": message_text
             }
         }
 
-        p = requests.post(endpoint_url, json=payload, params=self.access_token)
-        return p
-
-    def add_member_to_group(self, group_id, members):
-        endpoint_url = f"{self.base}/group/{group_id}/members/add"
-        payload = members
-
-        p = requests.post(endpoint_url, json=payload, params=self.access_token)
+        p = requests.post(endpoint_url, json=data, params=payload)
         return p
 
     def images(self, image):
